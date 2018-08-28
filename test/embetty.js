@@ -32,6 +32,13 @@ describe('Embetty', () => {
     assert.equal(t.data.id_str, Tweets.text)
   })
 
+  it('should load a instagram post', async () => {
+    const embetty = new Embetty()
+    const i = await embetty.loadInstagramPost('Bm21NK8APqG')
+    assert.ok(i instanceof Embetty.InstagramPost)
+    assert.equal(i.data.author_id, '8097972913')
+  })
+
   it('should load a youtube video', async () => {
     const embetty = new Embetty()
     const v = await embetty.loadYoutubeVideo('m6UOo2YGbIE')
